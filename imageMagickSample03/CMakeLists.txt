@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 2.8)
 
-project("imageMagickSample02")
+project("imageMagickSample03")
 message(STATUS "\${PROJECT_NAME} = ${PROJECT_NAME}")
 
 ###
@@ -11,12 +11,12 @@ message(STATUS "\${PROJECT_NAME} = ${PROJECT_NAME}")
 # sudo apt install libmagickwand-dev -y (데비안)
 # sudo apt install libmagick++-dev (데비안)
 # sudo yum install ImageMagick-devel -y (센트OS)
-find_package(ImageMagick REQUIRED COMPONENTS MagickWand)
+find_package(ImageMagick REQUIRED COMPONENTS MagickCore)
 message(STATUS "\${ImageMagick_FOUND} = ${ImageMagick_FOUND}")
 message(STATUS "\${ImageMagick_INCLUDE_DIRS} = ${ImageMagick_INCLUDE_DIRS}")
 message(STATUS "\${ImageMagick_LIBRARIES} = ${ImageMagick_LIBRARIES}")
-message(STATUS "\${ImageMagick_MagickWand_FOUND} = ${ImageMagick_MagickWand_FOUND}")
-message(STATUS "\${ImageMagick_MagickWand_LIBRARIES} = ${ImageMagick_MagickWand_LIBRARIES}")
+message(STATUS "\${ImageMagick_MagickCore_FOUND} = ${ImageMagick_MagickCore_FOUND}")
+message(STATUS "\${ImageMagick_MagickCore_LIBRARIES} = ${ImageMagick_MagickCore_LIBRARIES}")
 include_directories(${ImageMagick_INCLUDE_DIRS})
 add_definitions(-DMAGICKCORE_QUANTUM_DEPTH=16)
 add_definitions(-DMAGICKCORE_HDRI_ENABLE=0)
@@ -30,7 +30,7 @@ message(STATUS "\${TARGET_PLATFORM} = ${TARGET_PLATFORM}")
 
 ###
 # 이 프로젝트의 실행 파일에 소스를 추가합니다.
-add_executable (${PROJECT_NAME} "imageMagickSample02.cpp")
+add_executable(${PROJECT_NAME} "imageMagickSample03.cpp")
 
 ###
 # 실행파일 생성후에 지정
