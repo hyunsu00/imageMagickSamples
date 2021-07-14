@@ -1,4 +1,4 @@
-# CMakeList.txt: log4cxxSocketServer 대한 CMake 프로젝트, 여기에 소스를 포함하고
+# CMakeList.txt: imageMagickSample01 대한 CMake 프로젝트, 여기에 소스를 포함하고
 # 프로젝트 특정 논리를 정의합니다.
 #
 cmake_minimum_required (VERSION 2.8)
@@ -7,9 +7,9 @@ project("imageMagickSample01")
 message(STATUS "\${PROJECT_NAME} = ${PROJECT_NAME}")
 
 ###
-# sudo apt install libmagickcore-dev -y (데비안)
-# sudo apt install libmagickwand-dev -y (데비안)
-# sudo apt install libmagick++-dev (데비안)
+# sudo apt install libmagickcore-dev -y (데비안) - MagickCore
+# sudo apt install libmagickwand-dev -y (데비안) - MagickCore, MagickWand
+# sudo apt install libmagick++-dev (데비안) - MagickCore, MagickWand, Magick++
 # sudo yum install ImageMagick-devel -y (센트OS)
 find_package(ImageMagick REQUIRED COMPONENTS Magick++)
 message(STATUS "\${ImageMagick_FOUND} = ${ImageMagick_FOUND}")

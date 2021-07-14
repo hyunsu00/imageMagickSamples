@@ -1,4 +1,4 @@
-﻿// imageMagickSample01.cpp
+﻿// imageMagickSample02.cpp
 //
 #include <wand/MagickWand.h>
 #include <iostream> // std::cout
