@@ -96,25 +96,16 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/include;../Extern/ImageMagick-7.1.0-2/include/Magick++</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x86/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CORE_RL_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CORE_DB_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_Magick++_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_MagickWand_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_MagickCore_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_lqr_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_glib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_libxml_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_bzlib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_freetype_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_lcms_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f</Command>
+      <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x86/bin/Debug/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -125,7 +116,7 @@ xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/include;../Extern/ImageMagick-7.1.0-2/include/Magick++</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,16 +127,7 @@ xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f
       <AdditionalDependencies>CORE_RL_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_Magick++_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_MagickWand_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_MagickCore_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_lqr_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_glib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_libxml_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_bzlib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_freetype_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\CORE_RL_lcms_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f</Command>
+      <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x86/bin/Release/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,25 +136,16 @@ xcopy "..\Extern\ImageMagick-7.1.0-2\x86\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/include;../Extern/ImageMagick-7.1.0-2/include/Magick++</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CORE_RL_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CORE_DB_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_Magick++_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_MagickWand_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_MagickCore_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_lqr_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_glib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_libxml_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_bzlib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_freetype_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_lcms_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f</Command>
+      <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x64/bin/Debug/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -183,7 +156,7 @@ xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/include;../Extern/ImageMagick-7.1.0-2/include/Magick++</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -194,16 +167,7 @@ xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f
       <AdditionalDependencies>CORE_RL_Magick++_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_Magick++_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_MagickWand_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_MagickCore_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_lqr_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_glib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_libxml_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_bzlib_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_freetype_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\CORE_RL_lcms_.dll" "$(OutDir)\" /d /h /y /f
-xcopy "..\Extern\ImageMagick-7.1.0-2\x64\bin\zlib1.dll" "$(OutDir)\" /d /h /y /f</Command>
+      <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x64/bin/Release/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
