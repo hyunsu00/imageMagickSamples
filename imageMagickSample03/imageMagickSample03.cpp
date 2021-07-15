@@ -106,7 +106,11 @@ int main(int argc, char** argv)
 #endif
 			//CopyMagickString(writeImageInfo->filename, imagePath.c_str(), MaxTextExtent);
 			writeImageInfo->file = file;
+#ifdef _WIN32
 			result = WriteImage(writeImageInfo, imageVector[i], exception);
+#else
+			result = WriteImage(writeImageInfo, imageVector[i]);
+#endif
 			fclose(file);
 		}
 
