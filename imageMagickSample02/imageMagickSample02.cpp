@@ -1,6 +1,11 @@
 ﻿// imageMagickSample02.cpp
 //
+#ifdef _WIN32
+#include <MagickWand/MagickWand.h>
+#else
 #include <wand/MagickWand.h>
+#endif
+#include <string> // std::to_string
 #include <iostream> // std::cout
 #include <vector> // std::vector
 #include <chrono> // std::chrono

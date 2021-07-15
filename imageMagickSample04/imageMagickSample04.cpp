@@ -1,17 +1,17 @@
 ﻿// imageMagickSample04.cpp
 //
-#include <stdio.h> // system
-#include <string>
+
+#include <iostream> // std::cout
+#include <string> // std::string
+
 #ifdef _WIN32
 #else
-#	include <string.h>	// strdup
-#	include <libgen.h>	// dirname
-#endif
-#include <iostream>
-
+#include <stdio.h> // system
+#include <string.h>	// strdup
+#include <libgen.h>	// dirname
 #include <unistd.h> // execl
 #include <sys/wait.h> // wait
-int main(int argc, char** argv)
+int linuxMain(int argc, char** argv)
 {
 	char* exePath = strdup(argv[0]);
 	std::string exeDir = dirname(exePath);
@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 #else
 	std::string command = std::string("convert -crop 12.5%x12.5% ") + imagePath + std::string(" ./results/cropped_%d.png");
 #endif
-    int ret = system(command.c_str());
+	int ret = system(command.c_str());
 
 	std::cout << "system(\"convert -crop 449x465 " << imagePath << " ./results/cropped_%d.png\")" << "=" << ret << std::endl;
 #endif
@@ -35,13 +35,25 @@ int main(int argc, char** argv)
 		std::cout << "[부모 프로세스 호출] : pid = " << pid << std::endl;
 		wait((int*)0); // 자식 프로세스가 종료될때까지 기다린다.
 		std::cout << "자식 프로세스 - execl() 종료됨" << std::endl;
-	} else if (pid == 0) {
+	}
+	else if (pid == 0) {
 		std::cout << "[자식 프로세스 호출] : pid = " << pid << std::endl;
 		int ret = execl("/usr/bin/convert", "convert", "-crop", "449x465", imagePath.c_str(), "./results/cropped_%d.png", 0);
 		perror("execl() failed to run convert");
-	} else {
+	}
+	else {
 		std::cout << "fork() 함수 실패" << std::endl;
 	}
 
-    return 0;
+	return 0;
+}
+#endif
+
+int main(int argc, char** argv)
+{
+#ifdef _WIN32
+	return 0;
+#else
+	return linuxMain(argc, argv);
+#endif
 }

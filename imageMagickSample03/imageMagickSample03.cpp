@@ -1,6 +1,11 @@
 ﻿// imageMagickSample03.cpp
 //
+#ifdef _WIN32
+#include <MagickCore/MagickCore.h>
+#else
 #include <magick/MagickCore.h>
+#endif
+#include <string> // std::to_string
 #include <iostream> // std::cout
 #include <vector> // std::vector
 #include <chrono> // std::chrono
@@ -60,7 +65,9 @@ int main(int argc, char** argv)
 */
 	MagickCoreGenesis(*argv, MagickTrue);
 	ExceptionInfo* exception = AcquireExceptionInfo();
+#ifndef _WIN32
 	GetExceptionInfo(exception);
+#endif
 
 	std::vector<Image*> imageVector;
 	{
@@ -91,10 +98,15 @@ int main(int argc, char** argv)
 		std::string imagePath;
 		for (int i = 0; i < static_cast<int>(imageVector.size()); i++) {
 			imagePath = std::string("logo") + std::to_string(i) + ".png";
-			FILE* file = fopen(imagePath.c_str(), "w+");
+			FILE* file = nullptr;
+#ifdef _WIN32
+			fopen_s(&file, imagePath.c_str(), "w+");
+#else
+			file = fopen(imagePath.c_str(), "w+");
+#endif
 			//CopyMagickString(writeImageInfo->filename, imagePath.c_str(), MaxTextExtent);
 			writeImageInfo->file = file;
-			result = WriteImage(writeImageInfo, imageVector[i]);
+			result = WriteImage(writeImageInfo, imageVector[i], exception);
 			fclose(file);
 		}
 
