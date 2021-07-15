@@ -10,7 +10,7 @@
 #include <vector> // std::vector
 #include <chrono> // std::chrono
 #include <string.h> // strcpy
-
+#include "common.h"
 
 int CropImageToTiles(const Image* image, const int cropWidth, const int cropHeight, std::vector<Image*>& imageVector)
 {
@@ -48,8 +48,10 @@ int CropImageToTiles(const Image* image, const int cropWidth, const int cropHeig
 	return 0;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
+	std::string resultDir = common::pathAddSeparator(common::getDir(argv[0]) + "result");
+
 	// MagickError(exception->severity,exception->reason,exception->description);
 	// if (exception->severity != UndefinedException) CatchException(exception);
 	//
@@ -93,25 +95,22 @@ int main(int argc, char** argv)
 		ImageInfo* writeImageInfo = CloneImageInfo(readImageInfo);
 		CopyMagickString(writeImageInfo->magick, "PNG", MaxTextExtent);
 		// MagickWriteImage does this so I do it too.
-		// writeImageInfo->adjoin = MagickTrue;
+		writeImageInfo->adjoin = MagickTrue;
 		MagickBooleanType result = MagickFalse;
 		std::string imagePath;
 		for (int i = 0; i < static_cast<int>(imageVector.size()); i++) {
-			imagePath = std::string("logo") + std::to_string(i) + ".png";
-			FILE* file = nullptr;
+			imagePath = resultDir + std::string("logo") + std::to_string(i) + ".png";
+
 #ifdef _WIN32
-			fopen_s(&file, imagePath.c_str(), "w+");
-#else
-			file = fopen(imagePath.c_str(), "w+");
-#endif
-			//CopyMagickString(writeImageInfo->filename, imagePath.c_str(), MaxTextExtent);
-			writeImageInfo->file = file;
-#ifdef _WIN32
+			CopyMagickString(imageVector[i]->filename, imagePath.c_str(), MaxTextExtent);
 			result = WriteImage(writeImageInfo, imageVector[i], exception);
 #else
+			FILE* file = fopen(imagePath.c_str(), "w+");
+			//CopyMagickString(writeImageInfo->filename, imagePath.c_str(), MaxTextExtent);
+			writeImageInfo->file = file;
 			result = WriteImage(writeImageInfo, imageVector[i]);
-#endif
 			fclose(file);
+#endif	
 		}
 
 		Image* imageReult = NULL;

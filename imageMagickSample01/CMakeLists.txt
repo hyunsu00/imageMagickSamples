@@ -29,6 +29,12 @@ endif()
 message(STATUS "\${TARGET_PLATFORM} = ${TARGET_PLATFORM}")
 
 ###
+#
+set (COMMON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../common)
+message(STATUS "\${COMMON_DIR} = ${COMMON_DIR}")
+include_directories(${COMMON_DIR})
+
+###
 # 이 프로젝트의 실행 파일에 소스를 추가합니다.
 add_executable (${PROJECT_NAME} "imageMagickSample01.cpp")
 
@@ -42,9 +48,9 @@ set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++11")
 
 add_custom_command(
 	TARGET ${PROJECT_NAME} PRE_BUILD
-	COMMENT "conf 파일을 복사합니다."
 	COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/samples/"
 	COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/../samples" "$<TARGET_FILE_DIR:${PROJECT_NAME}>/samples/"
+	COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/result/"
 )
 message(STATUS "\${CMAKE_COMMAND} = ${CMAKE_COMMAND}")
 

@@ -9,6 +9,7 @@
 #include <iostream> // std::cout
 #include <vector> // std::vector
 #include <chrono> // std::chrono
+#include "common.h"
 
 int CropImageToTiles(MagickWand* mw, const int cropWidth, const int cropHeight, std::vector<MagickWand*>& mwVector)
 {
@@ -36,8 +37,10 @@ int CropImageToTiles(MagickWand* mw, const int cropWidth, const int cropHeight, 
 	return 0;
 }
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
+	std::string resultDir = common::pathAddSeparator(common::getDir(argv[0]) + "result");
+
 	MagickWandGenesis();
 
 	std::vector<MagickWand*> mwVector;
@@ -67,7 +70,7 @@ int main(int argc, char** argv)
 
 		std::string imagePath;
 		for (int i = 0; i < static_cast<int>(mwVector.size()); i++) {
-			imagePath = std::string("logo") + std::to_string(i) + ".png";
+			imagePath = resultDir + std::string("logo") + std::to_string(i) + ".png";
 			MagickWriteImage(mwVector[i], imagePath.c_str());
 		}
 	

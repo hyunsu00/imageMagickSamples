@@ -11,6 +11,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imageMagickSample03", "imag
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imageMagickSample04", "imageMagickSample04\imageMagickSample04.vcxproj", "{E0B38FFE-3008-46B7-AC95-A24B2C09C69D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{9F4B399B-21B0-4AA9-9E32-391AC6D7651B}"
+	ProjectSection(SolutionItems) = preProject
+		common\common.h = common\common.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

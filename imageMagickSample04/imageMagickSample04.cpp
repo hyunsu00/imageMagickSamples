@@ -3,6 +3,7 @@
 
 #include <iostream> // std::cout
 #include <string> // std::string
+#include "common.h"
 
 #ifdef _WIN32
 #else
@@ -11,7 +12,7 @@
 #include <libgen.h>	// dirname
 #include <unistd.h> // execl
 #include <sys/wait.h> // wait
-int linuxMain(int argc, char** argv)
+int linuxMain(int argc, char* argv[])
 {
 	char* exePath = strdup(argv[0]);
 	std::string exeDir = dirname(exePath);

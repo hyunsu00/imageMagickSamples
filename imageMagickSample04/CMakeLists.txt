@@ -14,6 +14,12 @@ endif()
 message(STATUS "\${TARGET_PLATFORM} = ${TARGET_PLATFORM}")
 
 ###
+#
+set (COMMON_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../common)
+message(STATUS "\${COMMON_DIR} = ${COMMON_DIR}")
+include_directories(${COMMON_DIR})
+
+###
 # 이 프로젝트의 실행 파일에 소스를 추가합니다.
 add_executable(${PROJECT_NAME} "imageMagickSample04.cpp")
 
