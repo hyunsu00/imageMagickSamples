@@ -96,18 +96,21 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include;%(AdditionalIncludeDirectories);../common/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include;../common/;./OpenCL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x86/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CORE_DB_MagickWand_.lib;CORE_DB_MagickCore_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x86/bin/Debug/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)</Command>
+      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)
+xcopy "../Extern/ImageMagick-7.1.0-2/VisualMagick/bin/*.*" "$(OutDir)" /e /d /h /y /f
+xcopy "../samples/*.*" "$(OutDir)/samples/" /e /d /h /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -118,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include;%(AdditionalIncludeDirectories);../common/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x86/include;../common/;./OpenCL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,12 +129,15 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x86/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CORE_RL_MagickWand_.lib;CORE_RL_MagickCore_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x86/bin/Release/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)</Command>
+      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)
+xcopy "../Extern/ImageMagick-7.1.0-2/VisualMagick/bin/*.*" "$(OutDir)" /e /d /h /y /f
+xcopy "../samples/*.*" "$(OutDir)/samples/" /e /d /h /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -140,18 +146,21 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include;%(AdditionalIncludeDirectories);../common/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include;../common/;./OpenCL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CORE_DB_MagickWand_.lib;CORE_DB_MagickCore_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x64/bin/Debug/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)</Command>
+      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)
+xcopy "../Extern/ImageMagick-7.1.0-2/VisualMagick/bin/*.*" "$(OutDir)" /e /d /h /y /f
+xcopy "../samples/*.*" "$(OutDir)/samples/" /e /d /h /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -162,7 +171,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include;%(AdditionalIncludeDirectories);../common/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Extern/ImageMagick-7.1.0-2/x64/include;../common/;./OpenCL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,12 +179,15 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../Extern/ImageMagick-7.1.0-2/x64/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CORE_RL_MagickWand_.lib;CORE_RL_MagickCore_.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy "../Extern/ImageMagick-7.1.0-2/x64/bin/Release/*.*" "$(OutDir)" /e /d /h /y /f</Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)</Command>
+      <Command>IF NOT EXIST $(OutDir)result. (mkdir $(OutDir)result)
+xcopy "../Extern/ImageMagick-7.1.0-2/VisualMagick/bin/*.*" "$(OutDir)" /e /d /h /y /f
+xcopy "../samples/*.*" "$(OutDir)/samples/" /e /d /h /y /f</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
