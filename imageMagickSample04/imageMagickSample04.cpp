@@ -19,14 +19,15 @@ int Main(int argc, char* argv[])
 					 "+append", "show:", NULL 
 	};*/
 
-	// magick convert lena.jpg -resize 50 % lena.png
+	// magick ./samples/lena.jpg -resize 50% ./result/lena.png
 	/*std::string inputFile = samplesDir + "lena.jpg";
 	std::string outputFile = resultDir + "lena.png";
 	const char* args[] = { 
 		inputFile.c_str(), "-resize", "50%%", outputFile.c_str(), NULL
 	};*/
 
-	// magick convert -crop 300x200 logo: ./result/cropped_%d.png
+	// magick ./samples/chessboard.png -crop 449x465 ./result/cropped_%d.png
+	// magick ./samples/chessboard.png -crop 12.5%x12.5% ./result/cropped_%d.png
 	std::string inputFile = samplesDir + "chessboard.png";
 	std::string outputFile = resultDir + "cropped_%d.png";
 	const char* args[] = { 
